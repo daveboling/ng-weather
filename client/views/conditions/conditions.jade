@@ -1,0 +1,13 @@
+.container
+  h1 {{title}}
+  form#InputForm(role='form' name='conditionForm', novalidate)
+    .form-group
+      label Zip Code
+      //name attributes are automatically added to $scope
+      input#zip(name='zip' ng-model='zip' type='text', autofocus, required, ng-pattern='/^[0-9]{5}$/')
+    .form-group
+      button.btn.btn-primary(type='button' ng-show='conditionForm.$valid', ng-click='getConditions()') Submit
+  //the data from here can be animated, blah blah blah    
+  img(src='{{icon}}')
+  h3 Current Temp: {{temp_f}}
+  h3 Feels Like : {{feels_like}}

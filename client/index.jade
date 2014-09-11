@@ -1,5 +1,5 @@
 doctype html
-html(ng-app='mean-template', lang='en')
+html(ng-app='weather', lang='en')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -8,17 +8,23 @@ html(ng-app='mean-template', lang='en')
     link(href='/vendor/bootstrap/dist/css/bootstrap.css', rel='stylesheet')
     link(href='/vendor/fontawesome/css/font-awesome.css', rel='stylesheet')
     link(href='/index.css', rel='stylesheet')
+    link(href='/views/conditions/conditions.css', rel='stylesheet')
   body(ng-controller='MainController')
     .container
       .row
+        include views/shared/nav
         .col-xs-12
           h1 {{title}}
-          h2
-            span Web Development for &nbsp;
-            em: u {{occupation}}
+          #div(ng-view)
+
 
     script(src='/vendor/angular/angular.js')
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+    script(src='/vendor/angular-route/angular-route.js')
     script(src='/index.js')
+    script(src='/views/conditions/conditions.js')
+    script(src='/views/webcams/webcams.js')
+    script(src='/views/tenday/tenday.js')
+    script(src='/components/wu.js')
 

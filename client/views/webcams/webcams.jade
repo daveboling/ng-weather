@@ -1,0 +1,10 @@
+.container
+  h1 {{title}}
+  form#InputForm(role='form' name='camForm', novalidate)
+    .form-group
+      label Zip Code
+      input#zip(name='zip' ng-model='zip' type='text', autofocus, required, ng-pattern='/^[0-9]{5}$/')
+    .form-group
+      button.btn.btn-primary(type='button' ng-show='camForm.$valid', ng-click='getCams()') Submit
+  #cams
+    .photo(ng-repeat='pic in images' style='background-image: url("{{pic}}"); width: 100px; height: 100px;')

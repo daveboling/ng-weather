@@ -1,0 +1,16 @@
+.container
+  h1 {{title}}
+  form#InputForm(role='form' name='tenDayForm', novalidate)
+    .form-group
+      label Zip Code
+      input#zip(name='zip' ng-model='zip' type='text', autofocus, required, ng-pattern='/^[0-9]{5}$/')
+    .form-group
+      button.btn.btn-primary(type='button' ng-show='tenDayForm.$valid', ng-click='get10Day()') Submit
+  #forecast
+    .day(ng-repeat='day in forecast')
+      .icon: img(ng-src='{{day.icon_url}}')
+      .date {{day.date.monthname + ' ' + day.date.day}}
+      .high High: {{day.high.fahrenheit}}
+      .low Low: {{day.low.fahrenheit}}
+
+
